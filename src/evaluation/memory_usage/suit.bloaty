@@ -1,0 +1,37 @@
+custom_data_source: {
+  name: "suit"
+  base_data_source: "compileunits"
+
+  rewrite: {
+    pattern: "^.*nanocoap.*"
+    replacement: "coap"
+  }
+  rewrite: {
+    pattern: "^.*(emcute|asymcute).*"
+    replacement: "mqttsn"
+  }
+  rewrite: {
+    pattern: "^.*(gnrc|sys/net|ethos|netdev|inet).*"
+    replacement: "network"
+  }
+  rewrite: {
+    pattern: "^.*(c25519|hashes).*"
+    replacement: "crypto"
+  }
+  rewrite: {
+    pattern: "^.*(cbor|cose).*"
+    replacement: "cborcose"
+  }
+  rewrite: {
+    pattern: "^.*(suit/transport|suit_update/coap|suit/storage|examples/suit_update).*"
+    replacement: "ota"
+  }
+  rewrite: {
+    pattern: "^.*suit.*"
+    replacement: "suit"
+  }
+  rewrite: {
+    pattern: "^.*(core|cpu|shell|riotboot|evtimer|uuid|xtimer|fmt|tsrb|progress_bar|luid|newlib|boards|checksum|random|pm|stdio|isrpipe|auto_init|drivers|event|iolist).*"
+    replacement: "core"
+  }
+}

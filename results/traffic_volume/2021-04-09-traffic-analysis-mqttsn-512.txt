@@ -1,0 +1,37 @@
+# Command: ./traffic_analyser.py --pcap ~/Documents/Uni/WS2021/masterarbeit/data/pcap/2021-04-09-suit-mqtt-sn-full-update-ethernet-512.pcapng --device-addr a6:6a:98:82:cc:7b --server-addr 28:d2:44:f2:d6:6a --src-addr-field eth.src --dst-addr-field eth.dst --check-total --mqttsn-port 10000
+# Block size: 512
+Using tshark version 3.4.2
+
+####################
+# Server → Device: #
+####################
+
+Packets:		337
+
+Eth:			 4.718 kB
+Ipv6:			 13.48 kB
+Udp:			 2.696 kB
+Mqttsn:			 2.523 kB
+Payload mqttsn:
+  Messages:		 84.805 kB
+  ---------------------------------
+  Total:		 84.805 kB
+-----------------------------------
+Total:			 108.222 kB
+
+####################
+# Device → Server: #
+####################
+
+Packets:		336
+
+Eth:			 4.704 kB
+Ipv6:			 13.44 kB
+Udp:			 2.688 kB
+Mqttsn:			 2.027 kB
+Payload mqttsn:
+  Topics:		 9.574 kB
+  ---------------------------------
+  Total:		 9.574 kB
+-----------------------------------
+Total:			 32.433 kB

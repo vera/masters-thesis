@@ -1,0 +1,130 @@
+# Command: bloaty -c suit.bloaty -d sections,suit -n 0 -s vm ../../2020-clemens-vera/Results/bin/mqttsn-wpan/suit_update.elf
+
+    FILE SIZE        VM SIZE    
+ --------------  -------------- 
+   2.2%  74.3Ki  78.3%  74.3Ki    .text
+    38.7%  28.8Ki  38.8%  28.8Ki    network
+    24.1%  17.9Ki  24.1%  17.9Ki    [section .text]
+    16.2%  12.0Ki  16.2%  12.0Ki    core
+     8.3%  6.15Ki   8.3%  6.15Ki    crypto
+     4.1%  3.04Ki   4.1%  3.04Ki    suit
+     3.5%  2.60Ki   3.5%  2.60Ki    ota
+     2.7%  1.99Ki   2.7%  1.99Ki    cborcose
+     2.4%  1.77Ki   2.4%  1.77Ki    mqttsn
+     0.1%      40   0.0%       0    [ELF Headers]
+   0.0%       0  20.9%  19.8Ki    .bss
+     NAN%       0  42.2%  8.37Ki    ota
+     NAN%       0  31.2%  6.18Ki    network
+     NAN%       0  19.9%  3.95Ki    core
+     NAN%       0   6.2%  1.22Ki    mqttsn
+     NAN%       0   0.2%      48    suit
+     NAN%       0   0.2%      32    crypto
+     NAN%       0   0.1%      20    [section .bss]
+   0.0%       0   0.5%     512    .stack
+     NAN%       0 100.0%     512    core
+   0.0%     272   0.2%     232    .relocate
+    36.8%     100  43.1%     100    [section .relocate]
+    23.5%      64  27.6%      64    crypto
+    13.2%      36  15.5%      36    core
+     8.8%      24  10.3%      24    ota
+     1.5%       4   1.7%       4    mqttsn
+     1.5%       4   1.7%       4    network
+    14.7%      40   0.0%       0    [ELF Headers]
+   0.0%      48   0.0%       8    .ARM.exidx
+    16.7%       8 100.0%       8    [section .ARM.exidx]
+    83.3%      40   0.0%       0    [ELF Headers]
+   0.0%      90   0.0%       0    .ARM.attributes
+    44.4%      40   NAN%       0    [ELF Headers]
+    55.6%      50   NAN%       0    [section .ARM.attributes]
+   0.0%     161   0.0%       0    .comment
+    24.8%      40   NAN%       0    [ELF Headers]
+    75.2%     121   NAN%       0    [section .comment]
+   3.5%   118Ki   0.0%       0    .debug_abbrev
+     0.0%      40   NAN%       0    [ELF Headers]
+     0.9%  1.11Ki   NAN%       0    [section .debug_abbrev]
+    99.0%   117Ki   NAN%       0    ota
+   0.3%  10.1Ki   0.0%       0    .debug_aranges
+     0.4%      40   NAN%       0    [ELF Headers]
+    99.6%  10.0Ki   NAN%       0    [section .debug_aranges]
+   0.9%  28.6Ki   0.0%       0    .debug_frame
+     0.1%      40   NAN%       0    [ELF Headers]
+    99.9%  28.6Ki   NAN%       0    [section .debug_frame]
+  26.9%   901Ki   0.0%       0    .debug_info
+     0.0%      40   NAN%       0    [ELF Headers]
+     4.4%  39.9Ki   NAN%       0    cborcose
+    36.0%   324Ki   NAN%       0    core
+     4.7%  42.8Ki   NAN%       0    crypto
+     1.6%  14.3Ki   NAN%       0    mqttsn
+    42.9%   386Ki   NAN%       0    network
+     4.1%  37.1Ki   NAN%       0    ota
+     6.2%  55.7Ki   NAN%       0    suit
+  11.8%   396Ki   0.0%       0    .debug_line
+     0.0%      40   NAN%       0    [ELF Headers]
+     3.7%  14.7Ki   NAN%       0    cborcose
+    37.3%   148Ki   NAN%       0    core
+     4.6%  18.2Ki   NAN%       0    crypto
+     1.8%  7.31Ki   NAN%       0    mqttsn
+    42.0%   166Ki   NAN%       0    network
+     4.5%  17.9Ki   NAN%       0    ota
+     5.9%  23.6Ki   NAN%       0    suit
+   5.7%   191Ki   0.0%       0    .debug_loc
+     0.0%      40   NAN%       0    [ELF Headers]
+    21.9%  42.0Ki   NAN%       0    [section .debug_loc]
+     3.5%  6.67Ki   NAN%       0    cborcose
+    17.6%  33.8Ki   NAN%       0    core
+     6.6%  12.7Ki   NAN%       0    crypto
+     2.2%  4.31Ki   NAN%       0    mqttsn
+    41.0%  78.6Ki   NAN%       0    network
+     3.4%  6.53Ki   NAN%       0    ota
+     3.7%  7.10Ki   NAN%       0    suit
+  18.2%   608Ki   0.0%       0    .debug_macro
+     0.0%      40   NAN%       0    [ELF Headers]
+   100.0%   608Ki   NAN%       0    [section .debug_macro]
+   1.0%  34.6Ki   0.0%       0    .debug_ranges
+     0.1%      40   NAN%       0    [ELF Headers]
+    12.8%  4.44Ki   NAN%       0    [section .debug_ranges]
+     3.4%  1.16Ki   NAN%       0    cborcose
+    30.7%  10.6Ki   NAN%       0    core
+     4.6%  1.59Ki   NAN%       0    crypto
+     2.3%     816   NAN%       0    mqttsn
+    40.4%  14.0Ki   NAN%       0    network
+     2.8%    1008   NAN%       0    ota
+     2.8%    1008   NAN%       0    suit
+  24.3%   812Ki   0.0%       0    .debug_str
+     0.1%     423   NAN%       0    
+     0.0%      40   NAN%       0    [ELF Headers]
+    93.4%   758Ki   NAN%       0    [section .debug_str]
+     0.6%  4.67Ki   NAN%       0    cborcose
+     2.2%  17.5Ki   NAN%       0    core
+     0.3%  2.37Ki   NAN%       0    crypto
+     0.2%  1.92Ki   NAN%       0    mqttsn
+     2.2%  17.9Ki   NAN%       0    network
+     0.7%  5.33Ki   NAN%       0    ota
+     0.4%  3.49Ki   NAN%       0    suit
+   0.0%     275   0.0%       0    .shstrtab
+    14.5%      40   NAN%       0    [ELF Headers]
+     0.4%       1   NAN%       0    [Unmapped]
+    85.1%     234   NAN%       0    [section .shstrtab]
+   0.5%  15.7Ki   0.0%       0    .strtab
+     0.2%      40   NAN%       0    [ELF Headers]
+    15.0%  2.36Ki   NAN%       0    [section .strtab]
+     5.5%     887   NAN%       0    cborcose
+    31.5%  4.95Ki   NAN%       0    core
+     5.0%     801   NAN%       0    crypto
+     1.5%     243   NAN%       0    mqttsn
+    30.7%  4.82Ki   NAN%       0    network
+     5.4%     867   NAN%       0    ota
+     5.1%     812   NAN%       0    suit
+   1.1%  37.9Ki   0.0%       0    .symtab
+     0.1%      40   NAN%       0    [ELF Headers]
+    13.4%  5.09Ki   NAN%       0    [section .symtab]
+     4.2%  1.61Ki   NAN%       0    cborcose
+    33.6%  12.8Ki   NAN%       0    core
+     5.5%  2.08Ki   NAN%       0    crypto
+     2.6%    1008   NAN%       0    mqttsn
+    30.3%  11.5Ki   NAN%       0    network
+     5.5%  2.09Ki   NAN%       0    ota
+     4.8%  1.81Ki   NAN%       0    suit
+   0.0%     300   0.0%       0    [ELF Headers]
+   3.5%   118Ki   0.0%       0    [Unmapped]
+ 100.0%  3.27Mi 100.0%  94.8Ki    TOTAL

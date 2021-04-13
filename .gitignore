@@ -1,0 +1,14 @@
+*.cfg
+
+bin/
+*.d
+*.o
+*.bin
+*.elf
+*.map
+
+site-packages/
+.venv/
+*.pyc
+
+*.pcapng

@@ -1,0 +1,9 @@
+% Broker/server to device
+% Index 0: Block size
+% Index 1-3: MQTT-SN (header, topics, payload)
+% Index 4-6: CoAP (header, URIs, payload)
+32	39.633	0	84.477	26.377	0.011	84.52
+64	19.848	0	84.476	13.185	0.011	84.52
+128	9.948	0	84.475	6.589	0.011	84.52
+256	4.998	0	85.131	3.291	0.011	84.52
+512	2.523	0	84.805	1.642	0.011	84.52

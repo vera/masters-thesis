@@ -1,0 +1,617 @@
+# Command: bloaty -c suit.bloaty -d sections,suit,symbols -n 0 -s vm ../../2020-clemens-vera/Results/bin/mqttsn-wpan/suit_update.elf -- ../../2020-clemens-vera/Results/bin/coap-wpan/suit_update.elf
+
+    FILE SIZE        VM SIZE    
+ --------------  -------------- 
+  [ = ]       0  +6.5% +1.21Ki    .bss
+    [ = ]       0  [NEW] +1.22Ki    mqttsn
+      [ = ]       0  [NEW]    +512    rbuf
+      [ = ]       0  [NEW]    +512    tbuf
+      [ = ]       0  [NEW]    +156    sock
+      [ = ]       0  [NEW]     +28    timer
+      [ = ]       0  [NEW]     +24    gateway
+      [ = ]       0  [NEW]      +4    cli_id
+      [ = ]       0  [NEW]      +4    result
+      [ = ]       0  [NEW]      +4    subs
+      [ = ]       0  [NEW]      +4    txlock
+      [ = ]       0  [NEW]      +2    waitonid
+    [ = ]       0  -0.0%      -2    network
+      [ = ]       0 -50.0%      -2    gnrc_ipv6_pid
+    [ = ]       0  -0.1%      -8    ota
+      [ = ]       0  [NEW]   +1024    emcute_stack
+      [ = ]       0  [NEW]    +240    suit_manifest
+      [ = ]       0  [NEW]    +130    _topic
+      [ = ]       0  [NEW]    +128    _block_topic
+      [ = ]       0  [NEW]    +128    _trigger_topic
+      [ = ]       0  [NEW]     +24    last_known_good_gw
+      [ = ]       0  [NEW]     +20    _block_sub
+      [ = ]       0  [NEW]     +20    _trigger_sub
+      [ = ]       0  [NEW]      +8    blockwise_transfer_state
+      [ = ]       0  [NEW]      +2    _suit_mqtt_sn_pid
+      [ = ]       0  [DEL]      -2    _suit_coap_pid
+      [ = ]       0  [DEL]     -64    _nanocoap_server_msg_queue
+      [ = ]       0  [DEL]    -130    _url
+      [ = ]       0  [DEL] -1.50Ki    _nanocoap_server_stack
+  +0.7%    +544  +0.7%    +544    .text
+    [NEW] +1.77Ki  [NEW] +1.77Ki    mqttsn
+      [NEW]    +639  [NEW]    +639    emcute_run
+      [NEW]    +304  [NEW]    +304    emcute_con
+      [NEW]    +220  [NEW]    +220    emcute_pub
+      [NEW]    +176  [NEW]    +176    emcute_sub
+      [NEW]    +144  [NEW]    +144    emcute_reg
+      [NEW]    +140  [NEW]    +140    syncsend
+      [NEW]     +96  [NEW]     +96    on_ack
+      [NEW]     +40  [NEW]     +40    set_len.constprop.0
+      [NEW]     +28  [NEW]     +28    sock_udp_send.constprop.0
+      [NEW]     +16  [NEW]     +16    on_ack.part.0
+      [NEW]      +8  [NEW]      +8    time_evt
+      [NEW]      +1  [NEW]      +1    cpu_init
+    +6.7% +1.12Ki  +6.7% +1.12Ki    [section .text]
+       +10%   +1023   +10%   +1023    [section .text]
+      [NEW]    +104  [NEW]    +104    snprintf
+      [NEW]     +42  [NEW]     +42    strrchr
+      [NEW]      +1  [NEW]      +1    uuid_namespace_dns
+      -5.0%      -2  -5.0%      -2    strncpy
+      [DEL]      -8  [DEL]      -8    atol
+      [DEL]     -12  [DEL]     -12    __errno
+    +2.6%    +312  +2.6%    +312    core
+      [NEW]     +88  [NEW]     +88    thread_flags_set
+      [NEW]     +60  [NEW]     +60    _thread_flags_wait_any
+      [NEW]     +60  [NEW]     +60    thread_flags_wake
+      [NEW]     +32  [NEW]     +32    thread_flags_wait_any
+      [NEW]     +28  [NEW]     +28    _thread_flags_clear_atomic.isra.0
+      [NEW]     +22  [NEW]     +22    __func__.6442
+       +12%     +20   +12%     +20    _msg_send
+       +45%     +20   +45%     +20    queue_msg
+      [NEW]     +16  [NEW]     +16    thread_flags_clear
+      +6.7%      +1  +6.7%      +1    _version_handler
+      [NEW]      +1  [NEW]      +1    suit_mqtt_sn_run
+      [DEL]      -1  [DEL]      -1    _trigger_handler
+      [DEL]      -1  [DEL]      -1    inet_pton
+      [DEL]      -1  [DEL]      -1    sock_tl_str2ep
+     -20.0%      -3 -20.0%      -3    pm_off
+      -8.3%      -8  -8.3%      -8    flashpage_erase
+      [DEL]     -22  [DEL]     -22    __func__.6454
+    +6.7%    +168  +6.7%    +168    ota
+      [NEW]    +352  [NEW]    +352    _on_pub_firmware
+      [NEW]    +256  [NEW]    +256    cmd_con
+      [NEW]    +220  [NEW]    +220    _suit_mqtt_sn_thread
+      [NEW]    +192  [NEW]    +192    _sub
+      [NEW]    +140  [NEW]    +140    _get_blockwise
+      [NEW]    +108  [NEW]    +108    _on_pub_size
+      [NEW]     +96  [NEW]     +96    suit_mqtt_sn_fetch
+      [NEW]     +92  [NEW]     +92    suit_mqtt_sn_trigger
+      [NEW]     +80  [NEW]     +80    _on_pub_manifest
+      [NEW]     +68  [NEW]     +68    _pub_device_status
+      [NEW]     +56  [NEW]     +56    _parse_block_topic
+      [NEW]     +47  [NEW]     +47    suit_mqtt_sn_run
+      [NEW]     +44  [NEW]     +44    cmd_sub
+       +67%     +24   +67%     +24    shell_commands
+      [NEW]     +24  [NEW]     +24    thread_get
+      [NEW]     +20  [NEW]     +20    emcute_thread
+      [NEW]      +8  [NEW]      +8    _on_pub_trigger
+      +5.9%      +8  +5.9%      +8    main
+      [NEW]      +6  [NEW]      +6    _prefix.9829
+      [DEL]      -4  [DEL]      -4    coap_resources_numof
+      [DEL]      -4  [DEL]      -4    xtimer_now_usec
+      [DEL]      -6  [DEL]      -6    _prefix.9845
+      [DEL]      -8  [DEL]      -8    coap_resource_subtree_suit
+      [DEL]     -18  [DEL]     -18    coap_subtree_handler
+      [DEL]     -32  [DEL]     -32    suit_coap_get_blockwise_url_buf
+      [DEL]     -36  [DEL]     -36    _version_handler
+      [DEL]     -48  [DEL]     -48    _riot_board_handler
+      [DEL]     -48  [DEL]     -48    coap_resources
+      [DEL]     -48  [DEL]     -48    suit_coap_run
+      [DEL]     -56  [DEL]     -56    suit_coap_trigger
+      [DEL]     -58  [DEL]     -58    _2buf
+      [DEL]     -60  [DEL]     -60    _nanocoap_server_thread
+      [DEL]     -64  [DEL]     -64    _subtree
+      [DEL]     -68  [DEL]     -68    _slot_handler
+      [DEL]     -75  [DEL]     -75    _trigger_handler
+      [DEL]    -108  [DEL]    -108    suit_coap_get_blockwise_url
+      [DEL]    -228  [DEL]    -228    suit_storage_helper
+      [DEL]    -248  [DEL]    -248    _suit_coap_thread
+      [DEL]    -456  [DEL]    -456    suit_coap_get_blockwise
+    +0.1%      +4  +0.1%      +4    crypto
+       +12%      +4   +12%      +4    f25519_one
+    -0.3%      -8  -0.3%      -8    suit
+      -2.6%      -8  -2.6%      -8    _dtv_fetch
+    -4.2%     -90  -4.2%     -90    cborcose
+      +720%     +72  +720%     +72    nanocbor_get_int32
+      [NEW]     +66  [NEW]     +66    _enter_container
+       +53%     +16   +53%     +16    nanocbor_put_bstr
+       +42%     +16   +42%     +16    nanocbor_put_tstr
+     -12.5%      -6 -12.5%      -6    nanocbor_at_end
+      -6.1%      -8  -6.1%      -8    _skip_limited
+     -16.7%      -8 -16.7%      -8    _skip_simple
+      [DEL]     -36  [DEL]     -36    _put_bytes
+     -67.5%     -54 -67.5%     -54    nanocbor_enter_map
+     -90.9%     -60 -90.9%     -60    nanocbor_enter_array
+      [DEL]     -88  [DEL]     -88    _get_and_advance_int32
+    -1.7%    -522  -1.7%    -522    network
+      [NEW]      +2  [NEW]      +2    enable.11742
+      [NEW]      +1  [NEW]      +1    emcute_run
+      [NEW]      +1  [NEW]      +1    nanocbor_fmt_array
+      [DEL]      -1  [DEL]      -1    _version_handler
+      [DEL]      -1  [DEL]      -1    cpu_init
+      [DEL]      -1  [DEL]      -1    nanocoap_server
+      [DEL]      -1  [DEL]      -1    pm_off
+      [DEL]      -2  [DEL]      -2    enable.11834
+     -25.0%      -2 -25.0%      -2    netdev_eth_set
+      [DEL]      -8  [DEL]      -8    sock_udp_close
+      [DEL]     -35  [DEL]     -35    inet_pton
+      [DEL]     -42  [DEL]     -42    _parse_port
+      [DEL]     -66  [DEL]     -66    _parse_netif
+      [DEL]    -140  [DEL]    -140    sock_urlsplit
+      [DEL]    -227  [DEL]    -227    sock_tl_str2ep
+    [DEL] -2.23Ki  [DEL] -2.23Ki    coap
+      [DEL]      -1  [DEL]      -1    nanocbor_fmt_array
+      [DEL]     -34  [DEL]     -34    coap_find_option
+      [DEL]     -36  [DEL]     -36    coap_blockwise_put_char
+      [DEL]     -36  [DEL]     -36    coap_opt_put_uint
+      [DEL]     -40  [DEL]     -40    coap_opt_put_block
+      [DEL]     -46  [DEL]     -46    coap_get_block
+      [DEL]     -46  [DEL]     -46    coap_match_path
+      [DEL]     -50  [DEL]     -50    _encode_uint
+      [DEL]     -54  [DEL]     -54    _slicer2blkopt
+      [DEL]     -54  [DEL]     -54    coap_put_option
+      [DEL]     -56  [DEL]     -56    coap_build_hdr
+      [DEL]     -56  [DEL]     -56    coap_iterate_option
+      [DEL]     -60  [DEL]     -60    coap_block2_init
+      [DEL]     -60  [DEL]     -60    coap_handle_req
+      [DEL]     -64  [DEL]     -64    coap_block2_build_reply
+      [DEL]     -66  [DEL]     -66    _parse_option.isra.0
+      [DEL]     -70  [DEL]     -70    coap_blockwise_put_bytes
+      [DEL]     -72  [DEL]     -72    coap_block_finish
+      [DEL]     -82  [DEL]     -82    _decode_value
+      [DEL]     -86  [DEL]     -86    coap_get_blockopt
+      [DEL]     -88  [DEL]     -88    coap_build_reply
+      [DEL]     -90  [DEL]     -90    _put_delta_optlen
+      [DEL]     -96  [DEL]     -96    coap_opt_put_string_with_len
+      [DEL]    -100  [DEL]    -100    coap_reply_simple
+      [DEL]    -102  [DEL]    -102    coap_opt_put_uri_pathquery
+      [DEL]    -105  [DEL]    -105    nanocoap_server
+      [DEL]    -106  [DEL]    -106    coap_opt_get_string
+      [DEL]    -128  [DEL]    -128    coap_tree_handler
+      [DEL]    -188  [DEL]    -188    coap_well_known_core_default_handler
+      [DEL]    -208  [DEL]    -208    coap_parse
+  +1.5%      +4  +1.8%      +4    .relocate
+    [NEW]      +4  [NEW]      +4    mqttsn
+      [NEW]      +2  [NEW]      +2    id_next
+      [NEW]      +2  [NEW]      +2    waiton
+  -2.2%      -2  [ = ]       0    .ARM.attributes
+  -1.3% -1.56Ki  [ = ]       0    .debug_abbrev
+    +110%    +595  [ = ]       0    [section .debug_abbrev]
+    -1.8% -2.15Ki  [ = ]       0    ota
+      -1.8% -2.15Ki  [ = ]       0    [section .debug_abbrev]
+  -3.4%    -360  [ = ]       0    .debug_aranges
+  -4.0% -1.20Ki  [ = ]       0    .debug_frame
+  -1.8% -16.4Ki  [ = ]       0    .debug_info
+    -4.1% -1.69Ki  [ = ]       0    cborcose
+      -4.1% -1.69Ki  [ = ]       0    [section .debug_info]
+    [DEL] -27.0Ki  [ = ]       0    coap
+      [DEL] -27.0Ki  [ = ]       0    [section .debug_info]
+    +2.6% +8.24Ki  [ = ]       0    core
+      +2.6% +8.24Ki  [ = ]       0    [section .debug_info]
+    -0.1%     -63  [ = ]       0    crypto
+      -0.1%     -63  [ = ]       0    [section .debug_info]
+    [NEW] +14.3Ki  [ = ]       0    mqttsn
+      [NEW] +14.3Ki  [ = ]       0    [section .debug_info]
+    -3.1% -12.2Ki  [ = ]       0    network
+      -3.1% -12.2Ki  [ = ]       0    [section .debug_info]
+   -13.4% -5.75Ki  [ = ]       0    ota
+     -13.5% -5.75Ki  [ = ]       0    [section .debug_info]
+     +16% +7.81Ki  [ = ]       0    suit
+       +16% +7.81Ki  [ = ]       0    [section .debug_info]
+  -0.9% -3.64Ki  [ = ]       0    .debug_line
+    -4.7%    -739  [ = ]       0    cborcose
+      -4.7%    -739  [ = ]       0    [section .debug_line]
+    [DEL] -12.6Ki  [ = ]       0    coap
+      [DEL] -12.6Ki  [ = ]       0    [section .debug_line]
+    +2.8% +4.03Ki  [ = ]       0    core
+      +2.8% +4.03Ki  [ = ]       0    [section .debug_line]
+    [NEW] +7.31Ki  [ = ]       0    mqttsn
+      [NEW] +7.31Ki  [ = ]       0    [section .debug_line]
+    -3.8% -6.61Ki  [ = ]       0    network
+      -3.8% -6.61Ki  [ = ]       0    [section .debug_line]
+    -3.4%    -648  [ = ]       0    ota
+      -3.4%    -648  [ = ]       0    [section .debug_line]
+     +31% +5.58Ki  [ = ]       0    suit
+       +31% +5.58Ki  [ = ]       0    [section .debug_line]
+  -6.4% -13.1Ki  [ = ]       0    .debug_loc
+   -10.6% -4.97Ki  [ = ]       0    [section .debug_loc]
+    -5.7%    -411  [ = ]       0    cborcose
+      -5.7%    -411  [ = ]       0    [section .debug_loc]
+    [DEL] -9.95Ki  [ = ]       0    coap
+      [DEL] -9.95Ki  [ = ]       0    [section .debug_loc]
+    +4.6% +1.49Ki  [ = ]       0    core
+      +4.6% +1.49Ki  [ = ]       0    [section .debug_loc]
+    [NEW] +4.31Ki  [ = ]       0    mqttsn
+      [NEW] +4.31Ki  [ = ]       0    [section .debug_loc]
+    -2.1% -1.66Ki  [ = ]       0    network
+      -2.1% -1.66Ki  [ = ]       0    [section .debug_loc]
+   -22.6% -1.91Ki  [ = ]       0    ota
+     -22.6% -1.91Ki  [ = ]       0    [section .debug_loc]
+    -0.1%     -10  [ = ]       0    suit
+      -0.1%     -10  [ = ]       0    [section .debug_loc]
+  -2.3% -14.5Ki  [ = ]       0    .debug_macro
+  -2.6%    -928  [ = ]       0    .debug_ranges
+    -4.9%    -232  [ = ]       0    [section .debug_ranges]
+    -8.6%    -112  [ = ]       0    cborcose
+      -8.6%    -112  [ = ]       0    [section .debug_ranges]
+    [DEL] -1.51Ki  [ = ]       0    coap
+      [DEL] -1.51Ki  [ = ]       0    [section .debug_ranges]
+    +4.5%    +464  [ = ]       0    core
+      +4.5%    +464  [ = ]       0    [section .debug_ranges]
+    [NEW]    +816  [ = ]       0    mqttsn
+      [NEW]    +816  [ = ]       0    [section .debug_ranges]
+    -0.9%    -136  [ = ]       0    network
+      -0.9%    -136  [ = ]       0    [section .debug_ranges]
+   -16.6%    -200  [ = ]       0    ota
+     -16.6%    -200  [ = ]       0    [section .debug_ranges]
+    +1.6%     +16  [ = ]       0    suit
+      +1.6%     +16  [ = ]       0    [section .debug_ranges]
+  -0.4% -3.37Ki  [ = ]       0    .debug_str
+    -2.3%     -10  [ = ]       0    
+    -0.3% -1.98Ki  [ = ]       0    [section .debug_str]
+    -6.9%    -354  [ = ]       0    cborcose
+      -6.9%    -354  [ = ]       0    [section .debug_str]
+    [DEL] -1.96Ki  [ = ]       0    coap
+      [DEL] -1.96Ki  [ = ]       0    [section .debug_str]
+    +1.6%    +276  [ = ]       0    core
+      +1.6%    +276  [ = ]       0    [section .debug_str]
+    +1.0%     +25  [ = ]       0    crypto
+      +1.0%     +25  [ = ]       0    [section .debug_str]
+    [NEW] +1.92Ki  [ = ]       0    mqttsn
+      [NEW] +1.92Ki  [ = ]       0    [section .debug_str]
+    -5.1%    -981  [ = ]       0    network
+      -5.1%    -981  [ = ]       0    [section .debug_str]
+    -4.8%    -278  [ = ]       0    ota
+      -4.8%    -278  [ = ]       0    [section .debug_str]
+    -1.3%     -48  [ = ]       0    suit
+      -1.3%     -48  [ = ]       0    [section .debug_str]
+  -0.4%      -1  [ = ]       0    .shstrtab
+  -2.1%    -343  [ = ]       0    .strtab
+    +0.3%      +8  [ = ]       0    [section .strtab]
+      +1.5%     +23  [ = ]       0    [section .strtab]
+      [DEL]     -15  [ = ]       0    sha1_update
+    -1.0%      -9  [ = ]       0    cborcose
+      [NEW]     +17  [ = ]       0    _enter_container
+      [DEL]     -23  [ = ]       0    _get_and_advance_int32
+      +111%     +10  [ = ]       0    _get_str
+      [NEW]      +8  [ = ]       0    _getc_r
+      [DEL]     -11  [ = ]       0    _put_bytes
+     -41.7%     -10  [ = ]       0    _skip_limited
+    [DEL]    -601  [ = ]       0    coap
+      [DEL]      -8  [ = ]       0    __malloc_lock
+      [DEL]      -8  [ = ]       0    __sread
+      [DEL]     -10  [ = ]       0    __srget_r
+      [DEL]     -14  [ = ]       0    _decode_value
+      [DEL]     -13  [ = ]       0    _encode_uint
+      [DEL]     -21  [ = ]       0    _parse_option.isra.0
+      [DEL]     -29  [ = ]       0    _put_delta_optlen
+      [DEL]      -8  [ = ]       0    _putc_r
+      [DEL]     -15  [ = ]       0    _slicer2blkopt
+      [DEL]     -24  [ = ]       0    coap_block2_build_reply
+      [DEL]     -17  [ = ]       0    coap_block2_init
+      [DEL]     -18  [ = ]       0    coap_block_finish
+      [DEL]     -14  [ = ]       0    coap_blockwise_put_bytes
+      [DEL]     -24  [ = ]       0    coap_blockwise_put_char
+      [DEL]     -15  [ = ]       0    coap_build_hdr
+      [DEL]     -17  [ = ]       0    coap_build_reply
+      [DEL]     -17  [ = ]       0    coap_find_option
+      [DEL]     -15  [ = ]       0    coap_get_block
+      [DEL]     -18  [ = ]       0    coap_get_blockopt
+      [DEL]     -16  [ = ]       0    coap_handle_req
+      [DEL]     -20  [ = ]       0    coap_iterate_option
+      [DEL]     -16  [ = ]       0    coap_match_path
+      [DEL]     -20  [ = ]       0    coap_opt_get_string
+      [DEL]     -19  [ = ]       0    coap_opt_put_block
+      [DEL]     -29  [ = ]       0    coap_opt_put_string_with_len
+      [DEL]     -18  [ = ]       0    coap_opt_put_uint
+      [DEL]     -27  [ = ]       0    coap_opt_put_uri_pathquery
+      [DEL]     -11  [ = ]       0    coap_parse
+      [DEL]     -31  [ = ]       0    coap_put_option
+      [DEL]     -18  [ = ]       0    coap_reply_simple
+      [DEL]     -18  [ = ]       0    coap_tree_handler
+      [DEL]     -37  [ = ]       0    coap_well_known_core_default_handler
+      [DEL]     -16  [ = ]       0    nanocoap_server
+    +3.0%    +149  [ = ]       0    core
+      [NEW]     +29  [ = ]       0    __func__.6442
+      [DEL]     -29  [ = ]       0    __func__.6454
+      [NEW]      +8  [ = ]       0    __malloc_lock
+      [NEW]      +8  [ = ]       0    __sread
+      [NEW]     +10  [ = ]       0    __srget_r
+     -54.5%      -6  [ = ]       0    _set_timer
+      [NEW]     +34  [ = ]       0    _thread_flags_clear_atomic.isra.0
+      [NEW]     +23  [ = ]       0    _thread_flags_wait_any
+      +1.2%     +15  [ = ]       0    isr_dma2_stream4
+     -21.6%     -11  [ = ]       0    isr_stack
+     -12.5%      -1  [ = ]       0    printf
+      [DEL]      -5  [ = ]       0    puts
+      [NEW]     +12  [ = ]       0    snprintf
+       +89%      +8  [ = ]       0    sprintf
+      [NEW]     +19  [ = ]       0    thread_flags_clear
+      [NEW]     +17  [ = ]       0    thread_flags_set
+      [NEW]     +18  [ = ]       0    thread_flags_wake
+    +1.3%     +10  [ = ]       0    crypto
+     -45.5%      -5  [ = ]       0    f25519_sub
+      [NEW]     +23  [ = ]       0    m.5497
+      [DEL]     -23  [ = ]       0    m.5501
+      +125%     +15  [ = ]       0    sha1_update
+    [NEW]    +243  [ = ]       0    mqttsn
+      [NEW]      +7  [ = ]       0    cli_id
+      [NEW]     +11  [ = ]       0    emcute_con
+      [NEW]     +11  [ = ]       0    emcute_pub
+      [NEW]     +11  [ = ]       0    emcute_reg
+      [NEW]     +11  [ = ]       0    emcute_run
+      [NEW]     +11  [ = ]       0    emcute_sub
+      [NEW]      +8  [ = ]       0    gateway
+      [NEW]     +27  [ = ]       0    id_next
+      [NEW]      +7  [ = ]       0    on_ack
+      [NEW]     +14  [ = ]       0    on_ack.part.0
+      [NEW]      +5  [ = ]       0    puts
+      [NEW]      +5  [ = ]       0    rbuf
+      [NEW]      +7  [ = ]       0    result
+      [NEW]     +20  [ = ]       0    set_len.constprop.0
+      [NEW]      +5  [ = ]       0    sock
+      [NEW]     +26  [ = ]       0    sock_udp_send.constprop.0
+      [NEW]      +5  [ = ]       0    subs
+      [NEW]      +9  [ = ]       0    syncsend
+      [NEW]      +5  [ = ]       0    tbuf
+      [NEW]      +9  [ = ]       0    time_evt
+      [NEW]      +6  [ = ]       0    timer
+      [NEW]      +7  [ = ]       0    txlock
+      [NEW]      +7  [ = ]       0    waiton
+      [NEW]      +9  [ = ]       0    waitonid
+    -2.1%    -104  [ = ]       0    network
+      [DEL]      -8  [ = ]       0    __errno
+      [DEL]      -8  [ = ]       0    _getc_r
+      [DEL]      -6  [ = ]       0    _parse_netif
+      [DEL]     -12  [ = ]       0    _parse_port
+      [NEW]      +8  [ = ]       0    _putc_r
+      [DEL]      -5  [ = ]       0    atol
+      [NEW]     +13  [ = ]       0    enable.11742
+      [DEL]     -13  [ = ]       0    enable.11834
+     -45.2%     -19  [ = ]       0    gnrc_pktbuf_static_buf
+      [DEL]     -10  [ = ]       0    inet_pton
+      [DEL]     -15  [ = ]       0    sock_tl_str2ep
+      [DEL]     -15  [ = ]       0    sock_udp_close
+      [DEL]     -14  [ = ]       0    sock_urlsplit
+    -5.1%     -47  [ = ]       0    ota
+      [DEL]      -6  [ = ]       0    _2buf
+      [NEW]     +11  [ = ]       0    _block_sub
+      [NEW]     +15  [ = ]       0    _get_blockwise
+       +38%     +11  [ = ]       0    _main_msg_queue
+      [DEL]     -27  [ = ]       0    _nanocoap_server_msg_queue
+      [DEL]     -23  [ = ]       0    _nanocoap_server_stack
+      [DEL]     -24  [ = ]       0    _nanocoap_server_thread
+      [NEW]     +17  [ = ]       0    _on_pub_firmware
+      [NEW]     +17  [ = ]       0    _on_pub_manifest
+      [NEW]     +13  [ = ]       0    _on_pub_size
+      [NEW]     +16  [ = ]       0    _on_pub_trigger
+      [NEW]     +19  [ = ]       0    _parse_block_topic
+      [NEW]     +13  [ = ]       0    _prefix.9829
+      [DEL]     -23  [ = ]       0    _prefix.9845
+      [NEW]     +19  [ = ]       0    _pub_device_status
+      [DEL]     -27  [ = ]       0    _riot_board_handler
+      [DEL]     -14  [ = ]       0    _slot_handler
+      [NEW]      +5  [ = ]       0    _sub
+      [DEL]      -9  [ = ]       0    _subtree
+      [DEL]     -15  [ = ]       0    _suit_coap_pid
+      [DEL]     -18  [ = ]       0    _suit_coap_thread
+      [NEW]     +18  [ = ]       0    _suit_mqtt_sn_pid
+      [NEW]     +21  [ = ]       0    _suit_mqtt_sn_thread
+      [DEL]     -17  [ = ]       0    _trigger_handler
+      [NEW]     +13  [ = ]       0    _trigger_sub
+      [NEW]     +15  [ = ]       0    _trigger_topic
+      [DEL]      -5  [ = ]       0    _url
+      [NEW]     +25  [ = ]       0    blockwise_transfer_state
+      [NEW]      +8  [ = ]       0    cmd_con
+      [NEW]      +8  [ = ]       0    cmd_sub
+      [DEL]     -27  [ = ]       0    coap_resource_subtree_suit
+      [DEL]     -15  [ = ]       0    coap_resources
+      [DEL]     -21  [ = ]       0    coap_resources_numof
+      [DEL]     -21  [ = ]       0    coap_subtree_handler
+      [NEW]     +13  [ = ]       0    emcute_stack
+      [NEW]     +14  [ = ]       0    emcute_thread
+      [NEW]     +19  [ = ]       0    last_known_good_gw
+      [DEL]     -24  [ = ]       0    suit_coap_get_blockwise
+      [DEL]     -23  [ = ]       0    suit_coap_get_blockwise_url
+      [DEL]     -32  [ = ]       0    suit_coap_get_blockwise_url_buf
+      [DEL]     -14  [ = ]       0    suit_coap_run
+      [DEL]     -18  [ = ]       0    suit_coap_trigger
+      [NEW]     +14  [ = ]       0    suit_manifest
+      [NEW]     +19  [ = ]       0    suit_mqtt_sn_fetch
+      [NEW]     +17  [ = ]       0    suit_mqtt_sn_run
+      [NEW]     +21  [ = ]       0    suit_mqtt_sn_trigger
+      [DEL]     -20  [ = ]       0    suit_storage_helper
+      [NEW]     +11  [ = ]       0    thread_get
+      [DEL]     -16  [ = ]       0    xtimer_now_usec
+    +1.0%      +8  [ = ]       0    suit
+      [NEW]      +8  [ = ]       0    strrchr
+  +0.5%    +208  [ = ]       0    .symtab
+    +0.9%     +48  [ = ]       0    [section .symtab]
+      +3.1%     +64  [ = ]       0    [section .symtab]
+      [DEL]     -48  [ = ]       0    __errno
+     -33.3%     -16  [ = ]       0    atoi
+      [DEL]     -16  [ = ]       0    atol
+      [DEL]     -16  [ = ]       0    sha1_update
+      [NEW]     +48  [ = ]       0    snprintf
+      +100%     +16  [ = ]       0    strncmp
+      [NEW]     +16  [ = ]       0    strncpy
+    +1.0%     +16  [ = ]       0    cborcose
+      [NEW]     +16  [ = ]       0    __lock___sfp_recursive_mutex
+      [NEW]     +16  [ = ]       0    __lock___sinit_recursive_mutex
+      [NEW]     +32  [ = ]       0    _enter_container
+      [DEL]     -32  [ = ]       0    _get_and_advance_int32
+      [NEW]     +16  [ = ]       0    _getc_r
+      [DEL]     -32  [ = ]       0    _put_bytes
+    [DEL] -1.05Ki  [ = ]       0    coap
+      [DEL]     -16  [ = ]       0    __lock___env_recursive_mutex
+      [DEL]     -16  [ = ]       0    __lock___sfp_recursive_mutex
+      [DEL]     -16  [ = ]       0    __lock___sinit_recursive_mutex
+      [DEL]     -16  [ = ]       0    __srget_r
+      [DEL]     -32  [ = ]       0    _decode_value
+      [DEL]     -32  [ = ]       0    _encode_uint
+      [DEL]     -32  [ = ]       0    _parse_option.isra.0
+      [DEL]     -32  [ = ]       0    _put_delta_optlen
+      [DEL]     -16  [ = ]       0    _putc_r
+      [DEL]     -32  [ = ]       0    _slicer2blkopt
+      [DEL]     -32  [ = ]       0    coap_block2_build_reply
+      [DEL]     -32  [ = ]       0    coap_block2_init
+      [DEL]     -32  [ = ]       0    coap_block_finish
+      [DEL]     -16  [ = ]       0    coap_blockwise_put_bytes
+      [DEL]     -48  [ = ]       0    coap_blockwise_put_char
+      [DEL]     -32  [ = ]       0    coap_build_hdr
+      [DEL]     -32  [ = ]       0    coap_build_reply
+      [DEL]     -32  [ = ]       0    coap_find_option
+      [DEL]     -32  [ = ]       0    coap_get_block
+      [DEL]     -32  [ = ]       0    coap_get_blockopt
+      [DEL]     -48  [ = ]       0    coap_handle_req
+      [DEL]     -32  [ = ]       0    coap_iterate_option
+      [DEL]     -32  [ = ]       0    coap_match_path
+      [DEL]     -32  [ = ]       0    coap_opt_get_string
+      [DEL]     -32  [ = ]       0    coap_opt_put_block
+      [DEL]     -32  [ = ]       0    coap_opt_put_string_with_len
+      [DEL]     -32  [ = ]       0    coap_opt_put_uint
+      [DEL]     -32  [ = ]       0    coap_opt_put_uri_pathquery
+      [DEL]     -32  [ = ]       0    coap_parse
+      [DEL]     -32  [ = ]       0    coap_put_option
+      [DEL]     -32  [ = ]       0    coap_reply_simple
+      [DEL]     -32  [ = ]       0    coap_tree_handler
+      [DEL]     -80  [ = ]       0    coap_well_known_core_default_handler
+      [DEL]     -16  [ = ]       0    nanocbor_fmt_array
+      [DEL]     -16  [ = ]       0    nanocoap_server
+    +2.5%    +320  [ = ]       0    core
+      -7.1%     -16  [ = ]       0    [section .symtab]
+      [NEW]     +48  [ = ]       0    __func__.6442
+      [DEL]     -48  [ = ]       0    __func__.6454
+      [NEW]     +16  [ = ]       0    __lock___env_recursive_mutex
+      [NEW]     +16  [ = ]       0    __srget_r
+      [NEW]     +32  [ = ]       0    _thread_flags_clear_atomic.isra.0
+      [NEW]     +48  [ = ]       0    _thread_flags_wait_any
+      [DEL]     -16  [ = ]       0    _trigger_handler
+       +25%     +16  [ = ]       0    _version_handler
+     -16.7%     -16  [ = ]       0    isr_stack
+      +100%     +16  [ = ]       0    pm_off
+      [DEL]     -16  [ = ]       0    puts
+      [NEW]     +32  [ = ]       0    snprintf
+      [DEL]     -16  [ = ]       0    sock_tl_str2ep
+      [NEW]     +16  [ = ]       0    suit_mqtt_sn_run
+      [NEW]     +48  [ = ]       0    thread_flags_clear
+      [NEW]     +64  [ = ]       0    thread_flags_set
+      [NEW]     +48  [ = ]       0    thread_flags_wait_any
+      [NEW]     +48  [ = ]       0    thread_flags_wake
+    +1.5%     +32  [ = ]       0    crypto
+      [NEW]     +16  [ = ]       0    __lock___arc4random_mutex
+      [NEW]     +48  [ = ]       0    m.5497
+      [DEL]     -48  [ = ]       0    m.5501
+       +33%     +16  [ = ]       0    sha1_update
+    [NEW]   +1008  [ = ]       0    mqttsn
+      [NEW]     +32  [ = ]       0    cli_id
+      [NEW]     +16  [ = ]       0    cpu_init
+      [NEW]     +48  [ = ]       0    emcute_con
+      [NEW]     +48  [ = ]       0    emcute_pub
+      [NEW]     +48  [ = ]       0    emcute_reg
+      [NEW]     +96  [ = ]       0    emcute_run
+      [NEW]     +48  [ = ]       0    emcute_sub
+      [NEW]     +32  [ = ]       0    gateway
+      [NEW]     +64  [ = ]       0    id_next
+      [NEW]     +48  [ = ]       0    on_ack
+      [NEW]     +48  [ = ]       0    on_ack.part.0
+      [NEW]     +16  [ = ]       0    puts
+      [NEW]     +32  [ = ]       0    rbuf
+      [NEW]     +32  [ = ]       0    result
+      [NEW]     +48  [ = ]       0    set_len.constprop.0
+      [NEW]     +32  [ = ]       0    sock
+      [NEW]     +48  [ = ]       0    sock_udp_send.constprop.0
+      [NEW]     +32  [ = ]       0    subs
+      [NEW]     +48  [ = ]       0    syncsend
+      [NEW]     +32  [ = ]       0    tbuf
+      [NEW]     +32  [ = ]       0    time_evt
+      [NEW]     +32  [ = ]       0    timer
+      [NEW]     +32  [ = ]       0    txlock
+      [NEW]     +32  [ = ]       0    waiton
+      [NEW]     +32  [ = ]       0    waitonid
+    -2.6%    -320  [ = ]       0    network
+     -23.1%     -48  [ = ]       0    [section .symtab]
+      [DEL]     -16  [ = ]       0    __errno
+      [DEL]     -16  [ = ]       0    __lock___arc4random_mutex
+      [DEL]     -16  [ = ]       0    _getc_r
+      [DEL]     -48  [ = ]       0    _parse_netif
+      [DEL]     -32  [ = ]       0    _parse_port
+      [NEW]     +16  [ = ]       0    _putc_r
+      [DEL]     -16  [ = ]       0    _version_handler
+      [DEL]     -16  [ = ]       0    atol
+      [DEL]     -32  [ = ]       0    cpu_init
+      [NEW]     +32  [ = ]       0    emcute_run
+      [NEW]     +32  [ = ]       0    enable.11742
+      [DEL]     -32  [ = ]       0    enable.11834
+     -40.0%     -32  [ = ]       0    gnrc_pktbuf_static_buf
+      [DEL]     -16  [ = ]       0    inet_pton
+      [NEW]     +16  [ = ]       0    nanocbor_fmt_array
+      [DEL]     -16  [ = ]       0    nanocoap_server
+       +50%     +16  [ = ]       0    netdev_eth_get
+      +100%     +16  [ = ]       0    netdev_eth_set
+      [DEL]     -16  [ = ]       0    pm_off
+      [DEL]     -16  [ = ]       0    sock_tl_str2ep
+      [DEL]     -32  [ = ]       0    sock_udp_close
+      [DEL]     -48  [ = ]       0    sock_urlsplit
+    +8.1%    +160  [ = ]       0    ota
+      [DEL]     -48  [ = ]       0    _2buf
+      [NEW]     +32  [ = ]       0    _block_sub
+      [NEW]     +32  [ = ]       0    _block_topic
+      [NEW]     +48  [ = ]       0    _get_blockwise
+       +25%     +16  [ = ]       0    _main_msg_queue
+      [DEL]     -32  [ = ]       0    _nanocoap_server_msg_queue
+      [DEL]     -32  [ = ]       0    _nanocoap_server_stack
+      [DEL]     -48  [ = ]       0    _nanocoap_server_thread
+      [NEW]     +48  [ = ]       0    _on_pub_firmware
+      [NEW]     +48  [ = ]       0    _on_pub_manifest
+      [NEW]     +48  [ = ]       0    _on_pub_size
+      [NEW]     +32  [ = ]       0    _on_pub_trigger
+      [NEW]     +48  [ = ]       0    _parse_block_topic
+      [NEW]     +32  [ = ]       0    _prefix.9829
+      [DEL]     -32  [ = ]       0    _prefix.9845
+      [NEW]     +48  [ = ]       0    _pub_device_status
+      [DEL]     -48  [ = ]       0    _riot_board_handler
+      [DEL]     -32  [ = ]       0    _slot_handler
+      [NEW]     +48  [ = ]       0    _sub
+      [DEL]     -32  [ = ]       0    _subtree
+      [DEL]     -32  [ = ]       0    _suit_coap_pid
+      [DEL]     -48  [ = ]       0    _suit_coap_thread
+      [NEW]     +32  [ = ]       0    _suit_mqtt_sn_pid
+      [NEW]     +48  [ = ]       0    _suit_mqtt_sn_thread
+      [NEW]     +32  [ = ]       0    _topic
+      [DEL]     -32  [ = ]       0    _trigger_handler
+      [NEW]     +32  [ = ]       0    _trigger_sub
+      [NEW]     +32  [ = ]       0    _trigger_topic
+      [DEL]     -32  [ = ]       0    _url
+      [DEL]     -48  [ = ]       0    _version_handler
+      [NEW]     +32  [ = ]       0    blockwise_transfer_state
+      [NEW]     +48  [ = ]       0    cmd_con
+      [NEW]     +48  [ = ]       0    cmd_sub
+      [DEL]     -48  [ = ]       0    coap_resource_subtree_suit
+      [DEL]     -32  [ = ]       0    coap_resources
+      [DEL]     -48  [ = ]       0    coap_resources_numof
+      [DEL]     -16  [ = ]       0    coap_subtree_handler
+      [NEW]     +32  [ = ]       0    emcute_stack
+      [NEW]     +48  [ = ]       0    emcute_thread
+      [NEW]     +32  [ = ]       0    last_known_good_gw
+      [DEL]     -48  [ = ]       0    suit_coap_get_blockwise
+      [DEL]     -48  [ = ]       0    suit_coap_get_blockwise_url
+      [DEL]     -48  [ = ]       0    suit_coap_get_blockwise_url_buf
+      [DEL]     -48  [ = ]       0    suit_coap_run
+      [DEL]     -48  [ = ]       0    suit_coap_trigger
+      [NEW]     +48  [ = ]       0    suit_manifest
+      [NEW]     +48  [ = ]       0    suit_mqtt_sn_fetch
+      [NEW]     +32  [ = ]       0    suit_mqtt_sn_run
+      [NEW]     +48  [ = ]       0    suit_mqtt_sn_trigger
+      [DEL]     -48  [ = ]       0    suit_storage_helper
+      [NEW]     +48  [ = ]       0    thread_get
+      [DEL]     -32  [ = ]       0    xtimer_now_usec
+    +0.9%     +16  [ = ]       0    suit
+      [NEW]     +16  [ = ]       0    strrchr
+  -9.6%     -32  [ = ]       0    [ELF Headers]
+  -0.4%    -512  [ = ]       0    [Unmapped]
+  -1.6% -55.1Ki  +1.9% +1.75Ki    TOTAL

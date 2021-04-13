@@ -1,0 +1,39 @@
+# Command: ./traffic_analyser.py --pcap ~/Documents/Uni/WS2021/masterarbeit/data/pcap/2021-04-09-suit-coap-full-update-ethernet-128.pcapng --device-addr a6:6a:98:82:cc:7b --server-addr 28:d2:44:f2:d6:6a --src-addr-field eth.src --dst-addr-field eth.dst --check-total
+# Block size: 128
+Using tshark version 3.4.2
+
+####################
+# Server → Device: #
+####################
+
+Packets:		661
+
+Eth:			 9.254 kB
+Ipv6:			 26.44 kB
+Udp:			 5.288 kB
+Coap:			 6.589 kB
+Payload coap:
+  Uris:			 0.011 kB
+  Payloads:		 84.52 kB
+  ---------------------------------
+  Total:		 84.531 kB
+-----------------------------------
+Total:			 132.102 kB
+
+####################
+# Device → Server: #
+####################
+
+Packets:		661
+
+Eth:			 9.254 kB
+Ipv6:			 26.44 kB
+Udp:			 5.288 kB
+Coap:			 7.906 kB
+Payload coap:
+  Uris:			 34.328 kB
+  ---------------------------------
+  Total:		 34.328 kB
+-----------------------------------
+Total:			 83.216 kB
+

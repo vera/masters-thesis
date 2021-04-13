@@ -1,0 +1,63 @@
+# Comparison of memory usage of sample MQTT-SN applications using asymcute (../Src/asymcute_emcute_comparison/asymcute_mqttsn) and emcute (../Src/asymcute_emcute_comparison/emcute_mqttsn).
+# Created using bloaty:
+# $ bloaty -c ../Src/evaluation/suit.bloaty -d sections,suit -C full -n 0 -s vm ../Src/asymcute_emcute_comparison/asymcute_mqttsn/bin/nucleo-f767zi/asymcute_mqttsn.elf -- ../Src/asymcute_emcute_comparison/emcute_mqttsn/bin/nucleo-f767zi/emcute_mqttsn.elf
+
+    FILE SIZE        VM SIZE    
+ --------------  -------------- 
+  +9.0% +3.21Ki  +9.0% +3.21Ki    .text
+     +69% +1.41Ki   +69% +1.41Ki    mqttsn
+     +15%    +955   +15%    +955    [section .text]
+    +3.5%    +673  +3.5%    +673    network
+    +2.6%    +220  +2.6%    +220    core
+  [ = ]       0  +1.3%    +232    .bss
+    [ = ]       0   +15%    +234    mqttsn
+    [ = ]       0  +0.0%      +2    network
+    [ = ]       0  -0.1%      -4    core
+  +3.3%      +3  [ = ]       0    .ARM.attributes
+  +7.4% +5.66Ki  [ = ]       0    .debug_abbrev
+     +12%    +131  [ = ]       0    [section .debug_abbrev]
+    +7.4% +5.53Ki  [ = ]       0    mqttsn
+  +7.0%    +432  [ = ]       0    .debug_aranges
+  +8.0% +1.32Ki  [ = ]       0    .debug_frame
+  +8.3% +49.1Ki  [ = ]       0    .debug_info
+    +7.4% +18.6Ki  [ = ]       0    core
+     +41% +9.35Ki  [ = ]       0    mqttsn
+    +6.7% +21.2Ki  [ = ]       0    network
+  +7.8% +20.7Ki  [ = ]       0    .debug_line
+    +0.2%      +2  [ = ]       0    /data/riotbuild/riotbase/sys/iolist/iolist.c
+    +7.6% +8.56Ki  [ = ]       0    core
+     +18% +2.01Ki  [ = ]       0    mqttsn
+    +7.2% +10.1Ki  [ = ]       0    network
+  +9.5% +10.2Ki  [ = ]       0    .debug_loc
+    +8.0% +1.89Ki  [ = ]       0    [section .debug_loc]
+    +4.8% +1.15Ki  [ = ]       0    core
+    +110% +5.05Ki  [ = ]       0    mqttsn
+    +3.8% +2.13Ki  [ = ]       0    network
+  +5.2% +22.5Ki  [ = ]       0    .debug_macro
+  +6.6% +1.45Ki  [ = ]       0    .debug_ranges
+    +7.2%    +232  [ = ]       0    [section .debug_ranges]
+    +3.4%    +288  [ = ]       0    core
+     +74%    +704  [ = ]       0    mqttsn
+    +2.6%    +256  [ = ]       0    network
+  +0.5% +3.93Ki  [ = ]       0    .debug_str
+    +0.8%      +4  [ = ]       0    
+    -3.3%      -6  [ = ]       0    /data/riotbuild/riotbase/sys/iolist/iolist.c
+    +0.2% +1.59Ki  [ = ]       0    [section .debug_str]
+    +1.9%    +261  [ = ]       0    core
+     +34% +1.75Ki  [ = ]       0    mqttsn
+    +2.0%    +344  [ = ]       0    network
+  +5.8%    +600  [ = ]       0    .strtab
+    +3.0%     +57  [ = ]       0    [section .strtab]
+    +4.9%    +195  [ = ]       0    core
+     +48%    +155  [ = ]       0    mqttsn
+    +4.8%    +193  [ = ]       0    network
+  +4.9% +1.16Ki  [ = ]       0    .symtab
+    +6.7%    +224  [ = ]       0    [section .symtab]
+    +3.7%    +368  [ = ]       0    core
+    +6.2%     +80  [ = ]       0    mqttsn
+    +5.4%    +512  [ = ]       0    network
+  -9.6%     -32  [ = ]       0    [ELF Headers]
+  -3.4% -3.18Ki  [ = ]       0    [Unmapped]
+  -2.4%      -4  -3.2%      -4    .relocate
+    [DEL]      -4  [DEL]      -4    mqttsn
+  +4.8%  +117Ki  +6.4% +3.43Ki    TOTAL
