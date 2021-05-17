@@ -25,16 +25,21 @@ def cmd_write(s, command, wait_after_cmd):
 def cmd_read(s):
     while True:
         line = s.read_until()
-        print("{}\t{}".format(time.time(), line.decode("utf-8")), end="")
+        try:
+        	print("{}\t{}".format(time.time(), line.decode("utf-8")), end="", flush=True)
+        except UnicodeDecodeError:
+        	continue
 
 def cmd_time(s):
+    time_started = False
     while True:
         line = s.read_until()
 
         if b'trigger received' in line:
             time_start = time.time()
+            time_started = True
             print("{}\t".format(time_start), end="")
-        elif b'This is RIOT!' in line:
+        elif time_started and b'This is RIOT!' in line:
             time_end = time.time()
             print(time_end)
             return

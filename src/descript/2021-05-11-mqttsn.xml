@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<experiment version="3" generator="TBMGMT">
+    <general>
+        <name>SUIT / MQTT-SN / 32 B / Node 7</name>
+        <description></description>
+        <start_time>2021-05-11 16:32:45 +00:00</start_time>
+        <iterations>1</iterations>
+        <iteration_pause>0</iteration_pause>
+        <sample_interval>0</sample_interval>
+        <restart_nodes>false</restart_nodes>
+        <lock_testbed>false</lock_testbed>
+        <groups>
+            <group>
+                <name>Node 7</name>
+                <role>Server</role>
+                <members>
+                    <node id="Node007"/>
+                </members>
+            </group>
+        </groups>
+        <files>
+            <file eval="false">
+                <filename>esp32_power_monitoring.tar</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>flash_esp.sh</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>flash_nucleo.sh</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>mqtt-sn-pub</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>suit_update-slot0-extended.bin</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>testbed_evaluation.py</filename>
+                <description></description>
+            </file>
+        </files>
+    </general>
+    <riotos>
+        <defaultCollectSensordata>false</defaultCollectSensordata>
+    </riotos>
+    <actions>
+        <variables/>
+        <action_block id="0" execution_mode="1">
+            <action id="0">
+                <command>chmod +x ../flash_nucleo.sh &amp;&amp; ../flash_nucleo.sh ../suit_update-slot0-extended.bin 0x08000000</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="1">
+                <command>chmod +x ../flash_esp.sh &amp;&amp; ../flash_esp.sh</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+        </action_block>
+        <action_block id="1" execution_mode="1">
+            <action id="0">
+                <command>ip link set eth2 up</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="1">
+                <command>ip addr add fd6c:8a2a:95f1::2/48 dev eth2</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="2">
+                <command>ip addr add fd6c:8a2a:95f1::2/48 dev eth0</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="3">
+                <command>ip r a fd6c:8a2a:95f1::1 dev eth2</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="4">
+                <command>ip r a fd6c:8a2a:95f1::3 dev eth0</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="5">
+                <command>chmod +x ../testbed_evaluation.py &amp;&amp; ../testbed_evaluation.py --cmd write --port /dev/ttyACM0 --write-cmd 'ifconfig 4 add fd6c:8a2a:95f1::1/48'</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="6">
+                <command>../testbed_evaluation.py --cmd write --port /dev/ttyACM0 --write-cmd 'nib neigh add 4 fd6c:8a2a:95f1::3 00:0d:b9:52:a9:66'</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="7">
+                <command>../testbed_evaluation.py --cmd write --port /dev/ttyACM0 --write-cmd 'con fd6c:8a2a:95f1::3 10000' --wait-after-cmd 'connected to gateway'</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="8">
+                <command>../testbed_evaluation.py --cmd write --port /dev/ttyACM0 --write-cmd 'sub suit/trigger' --wait-after-cmd 'successfully subscribed'</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+        </action_block>
+        <action_block id="2" execution_mode="2">
+            <action id="0">
+                <command>../testbed_evaluation.py --cmd read --port /dev/ttyUSB0 &gt; `pwd | awk -F/ '{print \$(NF-2)\"_\"\$(NF-1)\"_\"\$(NF)}'`_results_read.txt</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="1">
+                <command>sleep 1 &amp;&amp; ../testbed_evaluation.py --port /dev/ttyACM0 --cmd time &gt; `pwd | awk -F/ '{print \$(NF-2)\"_\"\$(NF-1)\"_\"\$(NF)}'`_results_time.txt &amp;&amp; pkill -f 'testbed_evaluation.py --cmd read --port /dev/ttyUSB0'</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="2">
+                <command>sleep 2 &amp;&amp; chmod +x ../mqtt-sn-pub &amp;&amp; ../mqtt-sn-pub -p 10000 -h fd6c:8a2a:95f1::3 -t suit/trigger -m fw/miot-nucleo-f767zi/suit_update-riot.suit_signed.latest.bin</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+        </action_block>
+        <action_block id="3" execution_mode="1">
+            <action id="0">
+                <command>scp `pwd | awk -F/ '{print \$(NF-2)\"_\"\$(NF-1)\"_\"\$(NF)}'`_results_read.txt testbed-result-upload@testbedstud161.comsys.ovgu.de:~</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="1">
+                <command>scp `pwd | awk -F/ '{print \$(NF-2)\"_\"\$(NF-1)\"_\"\$(NF)}'`_results_time.txt testbed-result-upload@testbedstud161.comsys.ovgu.de:~</command>
+                <group>Node 7</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+        </action_block>
+    </actions>
+    <results>
+        <replication id="6922">
+            <iteration id="0">
+                <variableValues/>
+                <action_block id="0">
+                    <action id="0">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:06.418 +00:00" endedBefore="2021-05-11 16:33:31.98 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="1">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:31.988 +00:00" endedBefore="2021-05-11 16:33:35.712 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                </action_block>
+                <action_block id="1">
+                    <action id="0">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:35.726 +00:00" endedBefore="2021-05-11 16:33:35.798 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="1">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:35.806 +00:00" endedBefore="2021-05-11 16:33:35.885 +00:00" returnCode="2">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="2">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:35.892 +00:00" endedBefore="2021-05-11 16:33:35.969 +00:00" returnCode="2">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="3">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:35.976 +00:00" endedBefore="2021-05-11 16:33:36.061 +00:00" returnCode="2">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="4">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:36.069 +00:00" endedBefore="2021-05-11 16:33:36.15 +00:00" returnCode="2">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="5">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:36.157 +00:00" endedBefore="2021-05-11 16:33:36.502 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="6">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:36.51 +00:00" endedBefore="2021-05-11 16:33:36.848 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="7">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:36.856 +00:00" endedBefore="2021-05-11 16:33:37.204 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="8">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:37.211 +00:00" endedBefore="2021-05-11 16:33:37.543 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                </action_block>
+                <action_block id="2">
+                    <action id="0">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:37.562 +00:00" endedBefore="2021-05-11 16:34:12.331 +00:00">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="1">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:37.563 +00:00" endedBefore="2021-05-11 16:34:12.33 +00:00">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="2">
+                        <invocation id="0" startedAfter="2021-05-11 16:33:37.561 +00:00" endedBefore="2021-05-11 16:33:39.641 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                </action_block>
+                <action_block id="3">
+                    <action id="0">
+                        <invocation id="0" startedAfter="2021-05-11 16:34:12.344 +00:00" endedBefore="2021-05-11 16:34:13.198 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                    <action id="1">
+                        <invocation id="0" startedAfter="2021-05-11 16:34:13.205 +00:00" endedBefore="2021-05-11 16:34:13.903 +00:00" returnCode="0">
+                            <node>Node007</node>
+                            <addressValues/>
+                        </invocation>
+                    </action>
+                </action_block>
+            </iteration>
+        </replication>
+    </results>
+    <hardware>
+        <testbeds name="Testbed">
+            <isVirtual>false</isVirtual>
+            <isRemote>false</isRemote>
+            <dnsmasqTemplate>serial 0 115200
+console 0
+default linux
+say Welcome to the testbed!
+NOESCAPE 1
+PROMPT 0
+TOTALTIMEOUT 30
+
+label linux
+KERNEL {{#node.imageFolder}}{{node.imageFolder}}{{/node.imageFolder}}{{^node.imageFolder}}rootfs{{/node.imageFolder}}/{{#node.kernelName}}{{node.kernelName}}{{/node.kernelName}}{{^node.kernelName}}vmlinuz{{/node.kernelName}}
+APPEND initrd={{#node.imageFolder}}{{node.imageFolder}}{{/node.imageFolder}}{{^node.imageFolder}}rootfs{{/node.imageFolder}}/{{#node.initrdName}}{{node.initrdName}}{{/node.initrdName}}{{^node.initrdName}}initrd.img{{/node.initrdName}} nfsroot={{nfsip}}:{{nfspath}}/{{#node.imageFolder}}{{node.imageFolder}}{{/node.imageFolder}}{{^node.imageFolder}}rootfs{{/node.imageFolder}},timeo=300,hard softlockup_panic=20  root=/dev/nfs panic=60 ro console=ttyS0,115200n8 ip=:{{nfsip}}::::eth0:dhcp  ethdevice-timeout=10 home={{nfsip}}:{{nfspath}}/home/{{home}} console=ttyS0 biosdevname=0 net.ifnames=0
+ONERROR recover</dnsmasqTemplate>
+        </testbeds>
+        <interfaceTypes name="wired" kernelName="wlan"/>
+        <interfaceTypes name="wireless" kernelName="wlan"/>
+        <nodeTypes name="router"/>
+        <nodes>
+            <node id="Node007">
+                <isVirtual>false</isVirtual>
+                <isLocal>true</isLocal>
+                <systemName></systemName>
+                <building>G29</building>
+                <level>3</level>
+                <room>319</room>
+                <testbedName>Testbed</testbedName>
+                <nodetype>router</nodetype>
+                <imgageFolder></imgageFolder>
+                <kernelName></kernelName>
+                <initrdName></initrdName>
+                <switchName></switchName>
+                <description>white - installed: 06.05.2020</description>
+                <interfaces>
+                    <interface>
+                        <name>eth0</name>
+                        <type>wired</type>
+                        <macAddress>00:0D:B9:52:A9:64</macAddress>
+                        <ipv4Address>172.1.1.7/8</ipv4Address>
+                        <mode>DEFAULT</mode>
+                        <controlInterface>true</controlInterface>
+                    </interface>
+                    <interface>
+                        <name>eth1</name>
+                        <type>wired</type>
+                        <macAddress>00:0D:B9:52:A9:65</macAddress>
+                        <ipv4Address>192.168.0.7/24</ipv4Address>
+                        <mode>DEFAULT</mode>
+                        <controlInterface>false</controlInterface>
+                    </interface>
+                    <interface>
+                        <name>wlan0</name>
+                        <type>wireless</type>
+                        <macAddress>04:D9:F5:5A:D5:4C</macAddress>
+                        <ipv4Address>10.0.1.7/24</ipv4Address>
+                        <frequency>2437</frequency>
+                        <essid>comsys-1</essid>
+                        <mode>IBSS</mode>
+                        <phyname>phy1</phyname>
+                        <controlInterface>false</controlInterface>
+                    </interface>
+                    <interface>
+                        <name>wlan1</name>
+                        <type>wireless</type>
+                        <macAddress>04:D9:F5:5A:DE:83</macAddress>
+                        <ipv4Address>10.0.0.7/24</ipv4Address>
+                        <frequency>2412</frequency>
+                        <essid>comsys-0</essid>
+                        <mode>IBSS</mode>
+                        <phyname>phy2</phyname>
+                        <controlInterface>false</controlInterface>
+                    </interface>
+                </interfaces>
+            </node>
+        </nodes>
+    </hardware>
+</experiment>

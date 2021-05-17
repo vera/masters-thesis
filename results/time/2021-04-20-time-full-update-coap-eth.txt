@@ -1,0 +1,2 @@
+# Different setup than the measurements from 2021-04-13: used module "ztimer_xtimer_compat" (Nucleo only), lowered conversion times from 4156 us to 140 us (INA3221), lowered sample period from 25 ms to 840 us (ESP32), used xtimer_periodic_wakeup instead of xtimer_msleep (ESP32)
+1618951341.4325335	1618951360.4985476
