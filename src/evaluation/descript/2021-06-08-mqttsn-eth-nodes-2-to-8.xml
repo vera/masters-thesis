@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<experiment version="3" generator="TBMGMT">
+    <general>
+        <name>SUIT / MQTT-SN / 64 B / Eth / Nodes 2 - 8</name>
+        <description></description>
+        <start_time></start_time>
+        <iterations>30</iterations>
+        <iteration_pause>0</iteration_pause>
+        <sample_interval>0</sample_interval>
+        <restart_nodes>false</restart_nodes>
+        <lock_testbed>false</lock_testbed>
+        <groups>
+            <group>
+                <name>AllNodes</name>
+                <role>Server</role>
+                <members>
+                    <node id="Node002"/>
+                    <node id="Node003"/>
+                    <node id="Node004"/>
+                    <node id="Node005"/>
+                    <node id="Node006"/>
+                    <node id="Node007"/>
+                    <node id="Node008"/>
+                </members>
+            </group>
+            <group>
+                <name>TriggerNode</name>
+                <role>Server</role>
+                <members>
+                    <node id="Node008"/>
+                </members>
+            </group>
+        </groups>
+        <files>
+            <file eval="false">
+                <filename>esp32_power_monitoring.tar</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>flash_esp.sh</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>flash_nucleo.sh</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>mqtt-sn-pub</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>suit_update-slot0-extended-128.bin</filename>
+                <description></description>
+            </file>
+            <file eval="false">
+                <filename>testbed_evaluation.py</filename>
+                <description></description>
+            </file>
+        </files>
+    </general>
+    <riotos>
+        <defaultCollectSensordata>false</defaultCollectSensordata>
+    </riotos>
+    <actions>
+        <variables>
+            <variable name="block_size">
+                <type>set</type>
+                <step></step>
+                <values>
+                    <value>128</value>
+                </values>
+            </variable>
+        </variables>
+        <action_block id="0" execution_mode="1">
+            <action id="0">
+                <command>until sysctl net.ipv6.conf.all.forwarding | grep -q '1'; do echo 'forwarding deactivated'; sleep 15; done</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="1">
+                <command>chmod +x ../flash_nucleo.sh &amp;&amp; ../flash_nucleo.sh ../suit_update-slot0-extended-{block_size}.bin 0x08000000</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="2">
+                <command>chmod +x ../flash_esp.sh &amp;&amp; ../flash_esp.sh</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+        </action_block>
+        <action_block id="1" execution_mode="1">
+            <action id="0">
+                <command>ip link set eth2 up</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="1">
+                <command>ip a a fd00:{_current.#node.id}::{_current.#node.id}86/32 dev eth2</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="2">
+                <command>ip a a fd00:1::{_current.#node.id}86/32 dev eth0</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="3">
+                <command>chmod +x ../testbed_evaluation.py &amp;&amp; ../testbed_evaluation.py --cmd write --port /dev/ttyACM0 --write-cmd 'ifconfig 4 add fd00:{_current.#node.id}::1/32'</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="4">
+                <command>../testbed_evaluation.py --cmd write --port /dev/ttyACM0 --write-cmd 'nib route add 4 fd00:1::/32 fd00:{_current.#node.id}::{_current.#node.id}86'</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="5">
+                <command>../testbed_evaluation.py --cmd write --port /dev/ttyACM0 --write-cmd 'con fd00:1::a 10000 suit_client{_current.#node.id}' --wait-after-cmd 'connected to gateway'</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration>90</duration>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="6">
+                <command>../testbed_evaluation.py --cmd write --port /dev/ttyACM0 --write-cmd 'sub suit/trigger' --wait-after-cmd 'successfully subscribed'</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration>90</duration>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+        </action_block>
+        <action_block id="2" execution_mode="2">
+            <action id="0">
+                <command>../testbed_evaluation.py --cmd read --port /dev/ttyUSB0 &gt; `pwd | awk -F/ '{print \$(NF-2)\"_\"\$(NF-1)\"_\"\$(NF)}'`_{block_size}_results_read.txt</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration>90</duration>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="1">
+                <command>sleep 1 &amp;&amp; ../testbed_evaluation.py --port /dev/ttyACM0 --cmd time &gt; `pwd | awk -F/ '{print \$(NF-2)\"_\"\$(NF-1)\"_\"\$(NF)}'`_{block_size}_results_time.txt; pkill -f 'testbed_evaluation.py --cmd read --port /dev/ttyUSB0'</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration>90</duration>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="2">
+                <command>sleep 2 &amp;&amp; chmod +x ../mqtt-sn-pub &amp;&amp; ../mqtt-sn-pub -p 10000 -h fd00:1::a -t suit/trigger -m fw/miot-nucleo-f767zi/suit_update-riot.suit_signed.latest.bin</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+        </action_block>
+        <action_block id="3" execution_mode="1">
+            <action id="0">
+                <command>scp `pwd | awk -F/ '{print \$(NF-2)\"_\"\$(NF-1)\"_\"\$(NF)}'`_{block_size}_results_read.txt testbed-result-upload@testbedstud161.comsys.ovgu.de:~</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+            <action id="1">
+                <command>scp `pwd | awk -F/ '{print \$(NF-2)\"_\"\$(NF-1)\"_\"\$(NF)}'`_{block_size}_results_time.txt testbed-result-upload@testbedstud161.comsys.ovgu.de:~</command>
+                <group>AllNodes</group>
+                <start_time xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <duration xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <comment></comment>
+                <evaluation_script xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <evaluation_parameter></evaluation_parameter>
+            </action>
+        </action_block>
+    </actions>
+</experiment>
