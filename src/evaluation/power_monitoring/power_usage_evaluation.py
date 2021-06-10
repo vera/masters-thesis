@@ -7,8 +7,10 @@ import sys
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--file', help="path to log file" , type=str, required=True)
-    parser.add_argument('--time-path', help="path to timing logs (folder)" , type=str, required=True)
+    parser.add_argument('--file', help="path to log file", type=str, required=True)
+    parser.add_argument('--time-path', help="path to timing logs (folder)", type=str, required=True)
+    parser.add_argument('--wireless', help="if yes, transmitter power usage is included in result", dest='wireless', action='store_true')
+    parser.set_defaults(wireless=False)
     args = parser.parse_args()
     
     time_file_name = os.path.basename(args.file).replace("_read", "_time")
@@ -28,7 +30,6 @@ def main():
         rows = list(reader)
 
         rows = list(filter(lambda x: float(x[0]) >= start_time, rows))
-
         rows = list(filter(lambda x: float(x[0]) <= end_time, rows))
 
         total_power_usage = 0
@@ -36,9 +37,11 @@ def main():
             if (len(rows[i - 1]) == 1):
                 continue
             interval = float(rows[i][0]) - float(rows[i - 1][0])
-            total_power_usage += (float(rows[i][1]) + float(rows[i - 1][1])) / 2 * interval
+            total_power_usage += (float(rows[i][1]) * 10**int(rows[i][5]) + float(rows[i - 1][1]) * 10**int(rows[i][5])) / 2 * interval
+            if args.wireless:
+                total_power_usage += (float(rows[i][8]) * 10**int(rows[i][10]) + float(rows[i - 1][8]) * 10**int(rows[i][10])) / 2 * interval
             i += 1
-        print("{}".format(total_power_usage / 3600 * 1000)) # mWh
+        print("{}".format(total_power_usage / 3600 * 1000)) # convert Ws to mWh
 
 if __name__ == "__main__":
     main()
