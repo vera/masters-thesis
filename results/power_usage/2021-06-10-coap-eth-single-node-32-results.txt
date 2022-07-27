@@ -1,4 +1,4 @@
-# Command: ./convert-raw-power-monitoring-files.sh $PATH_TO_THESIS_REPO/Results/power_usage/eth/single_node/coap/32 $PATH_TO_THESIS_REPO/Results/time/eth/single_node/coap/32 2021-06-10-coap-eth-single-node-32-results.txt
+# Command: ../../src/evaluation/power_monitoring/convert-raw-power-monitoring-files.sh eth/single_node/coap/32 ../time/eth/single_node/coap/32 2021-06-10-coap-eth-single-node-32-results.txt
 8.024062362293387
 7.991309740526793
 8.034356158322735

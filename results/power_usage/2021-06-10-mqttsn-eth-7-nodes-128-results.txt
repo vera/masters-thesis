@@ -1,4 +1,4 @@
-# Command: ./convert-raw-power-monitoring-files.sh $PATH_TO_THESIS_REPO/Results/power_usage/eth/7_nodes/mqttsn/128 $PATH_TO_THESIS_REPO/Results/time/eth/7_nodes/mqttsn/128 2021-06-10-mqttsn-eth-7-nodes-128-results.txt
+# Command: ../../src/evaluation/power_monitoring/convert-raw-power-monitoring-files.sh eth/7_nodes/mqttsn/128 ../time/eth/7_nodes/mqttsn/128 2021-06-10-mqttsn-eth-7-nodes-128-results.txt
 3.045137533018992
 3.067435543361635
 3.070622318936724
