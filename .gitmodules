@@ -1,0 +1,4 @@
+[submodule "src/RIOT"]
+	path = src/RIOT
+	url = git@github.com:vera/RIOT.git
+	branch = suit/mqtt-sn
