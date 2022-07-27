@@ -1,0 +1,18 @@
+# Command: awk 'NF==2 {print $2-$1}' wireless/single_node/node10/mqttsn/128/*.txt > 2021-06-22-mqttsn-wireless-single-node-node-10-128-results.txt
+111.293
+111.224
+111.43
+66.5636
+81.3741
+36.6941
+96.319
+81.5253
+96.471
+96.3336
+51.5237
+66.4994
+96.2911
+171.025
+126.311
+81.5277
+96.4755
